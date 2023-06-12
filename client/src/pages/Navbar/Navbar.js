@@ -16,6 +16,7 @@ export default function Navbar() {
     </nav>
   )
 }
+//comment
 
 function CustomLink({ to, children, ...props }) {
   const resolvedPath = useResolvedPath(to)
