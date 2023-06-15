@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const BuildingSchema = mongoose.Schema({
-    title: String,
+    name: String,
     creator: String,
     notes: String
 })

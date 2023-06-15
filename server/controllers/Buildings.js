@@ -18,8 +18,8 @@ export const getBuildings = async (req, res) => {
 }
 
 export const createBuilding = async (req, res) => { 
-    const { title, creator, notes } = req.body;   
-    const newBuilding = new Building({ name, email, notes });
+    const { name, creator, notes } = req.body;   
+    const newBuilding = new Building({ name, creator, notes });
     try {
         await newBuilding.save();
         res.status(201).json(Building);

@@ -19,7 +19,7 @@ root.render(
 >
 
     
-    <App />
+  <App />
     
     
 </Auth0Provider>
