@@ -33,3 +33,15 @@ export const createUser = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+
+export const updateUser = async (req, res) => { 
+    const { name, role, email } = req.body;   
+    const updatedUser = await User.findOne({email: email});
+    try {
+        updatedUser.overwrite({name: name, role: role})
+        await updatedUser.save();
+        res.status(201).json(User);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}

@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import axios from 'axios'
 
 
-export default function BuildingForm( { userName, setRefreshForNewBuilding } ) {
+export default function BuildingForm( { userName, setRefreshForNewBuilding, setDisplayForm } ) {
 
   const {register, handleSubmit } = useForm()
 
@@ -24,6 +24,7 @@ export default function BuildingForm( { userName, setRefreshForNewBuilding } ) {
               }
             });
             setRefreshForNewBuilding(r => true);
+            setDisplayForm(b => false);
             
           }
       )}>

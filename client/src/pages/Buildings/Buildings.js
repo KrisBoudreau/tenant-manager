@@ -42,14 +42,19 @@ export default function Buildings( {name, role, email} ) {
         > 
           {displayForm ? 'Close form': 'Create building'} 
         </Button> 
-        {displayForm ? <BuildingForm userName={name} setRefreshForNewBuilding={setRefreshForNewBuilding}/>: ''}
+        {displayForm ? 
+          <BuildingForm 
+            userName={name} 
+            setRefreshForNewBuilding={setRefreshForNewBuilding} 
+            setDisplayForm={setDisplayForm}/>
+            : ''}
       </Box>
 
 
       { buildings.map(building => {
         console.log(building);
           return (
-            <Building name={name} buildingName={building.name} id={building._id}/>
+            <Building name={name} buildingName={building.name} id={building._id} />
           )
       })}
 
