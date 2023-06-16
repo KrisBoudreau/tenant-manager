@@ -27,3 +27,15 @@ export const createBuilding = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+
+
+export const deleteBuilding = async (req, res) => { 
+    try {
+        const { id } = req.params;
+        await Building.deleteOne( {_id: id} );    
+        res.status(200);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+        
+    }
+}

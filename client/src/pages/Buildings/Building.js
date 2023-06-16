@@ -77,6 +77,16 @@ export default function Building( {name, buildingName, id} ) {
 
         </AccordionDetails>
 
+        <Button 
+          onClick={() => {
+            axios.delete(`http://localhost:3001/buildings/${id}`);
+            setRefreshForNewUnit(r => true);
+          }}
+
+          sx={{color: 'red', backgroundColor: 'navajowhite', margin: 2}}> 
+          
+        Delete Building </Button>
+
 
       </Accordion>
       

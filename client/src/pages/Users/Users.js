@@ -6,8 +6,6 @@ import { Paper } from '@mui/material'
 
 export default function Users( {name, role, email} ) {
 
-
-
   const [users, setUsers] = useState('none');
   useEffect(() => {
     async function fetchUsers() {
@@ -23,16 +21,17 @@ export default function Users( {name, role, email} ) {
   }
 
   return (
-    <Paper sx={{border:1, margin:1}}>
-      
+    <div>
       { users.map(user => {
-          return (
-            <Paper sx={{border:1, margin:1}}>
-            <User aname={user.name} aemail={user.email} arole={user.role} urole={role}/>
-            </Paper>
+          return (  
+            <User 
+              name={user.name} 
+              email={user.email} 
+              role={user.role} 
+              currentUserRole={role}
+            />
           )
         })}
-    
-    </Paper>
+    </div>
   )
 }
