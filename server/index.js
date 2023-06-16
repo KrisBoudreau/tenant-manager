@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import buildingRoutes from './routes/Buildings.js';
 import userRoutes from './routes/Users.js';
+import unitRoutes from './routes/Units.js';
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use('/buildings', buildingRoutes);
 app.use('/users', userRoutes);
+app.use('/units', unitRoutes);
 
 
 app.get('/', (req, res) => res.send('get'));

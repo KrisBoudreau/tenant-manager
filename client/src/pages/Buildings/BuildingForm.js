@@ -4,32 +4,33 @@ import {useForm} from 'react-hook-form'
 import axios from 'axios'
 
 
-export default function BuildingForm( {ss, userName} ) {
+export default function BuildingForm( { userName, setRefreshForNewBuilding } ) {
 
-  const {register, handleSubmit, control} = useForm()
+  const {register, handleSubmit } = useForm()
 
   return (
     <div>
       
-      <form onSubmit={handleSubmit(
-        (data)=> {
-          alert(JSON.stringify(data));
-          axios({
-            method: 'post',
-            url: 'http://localhost:3001/Buildings',
-            data: {
-              name: data.name,
-              creator: userName,
-              notes: 'this is a building'
-            }
-          });
-        }
-        
+      <form  
+        onSubmit={handleSubmit(
+          (data)=> {
+            axios({
+              method: 'post',
+              url: 'http://localhost:3001/Buildings',
+              data: {
+                name: data.name,
+                creator: userName,
+                notes: 'this is a building'
+              }
+            });
+            setRefreshForNewBuilding(r => true);
+            
+          }
       )}>
+
         <label>
           Building Name 
           <input {...register("name")}/>
-
         </label>
 
         <input type="submit" value="submit"/>
@@ -37,10 +38,6 @@ export default function BuildingForm( {ss, userName} ) {
       </form>
           
 
-  
-      
-      
-      
     </div>
   )
 }

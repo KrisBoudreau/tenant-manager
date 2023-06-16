@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import getUser from "./actions/users"
 import LogoutButton from "./pages/Navbar/Logout-button"
+import UnitDetails from "./pages/UnitDetails/UnitDetails"
 
 
 
@@ -56,20 +57,22 @@ const App = () => {
   if (isLoading) return <div>Loading ...</div>
   if (!isAuthenticated) return <LoginPage />
   if (role === 'blocked') 
-    return <div>you dont have access pls hit someone up lol<LogoutButton/></div>
+    return <div>you dont have access<LogoutButton/></div>
  
 
   return (
-    <>
+   
+      <>
       <Navbar />      
       <div className="container">
         <Routes>
           <Route path="/" element={<Home name={name} role={role} email={email} />} />
           <Route path="/Buildings" element={<Buildings name={name} role={role} email={email} />} />
           <Route path="/Users" element={<Users name={name} role={role} email={email} />} />
+          <Route path="/Units" element={<UnitDetails/>} />
         </Routes>
       </div>
-    </>
+      </>
   )
 }
 
