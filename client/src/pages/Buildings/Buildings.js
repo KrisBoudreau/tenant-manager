@@ -12,6 +12,7 @@ export default function Buildings( {name, role, email} ) {
   const [displayForm, setDisplayForm] = useState(false);
   const [refreshForNewBuilding, setRefreshForNewBuilding ]= useState(false);
 
+
   //get all buildings
   const [buildings, setBuildings] = useState('none');
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function Buildings( {name, role, email} ) {
 
   return (
     <div>
+      
       <Box sx={{backgroundColor: 'lightgoldenrodyellow', margin: 3}}>
         <Button 
           onClick={() => {setDisplayForm((b) => !b);}}
@@ -47,13 +49,9 @@ export default function Buildings( {name, role, email} ) {
       { buildings.map(building => {
         console.log(building);
           return (
-            <>
             <Building name={name} buildingName={building.name} id={building._id}/>
-            </>
           )
       })}
-
-      
 
     </div>
   )

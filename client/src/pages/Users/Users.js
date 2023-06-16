@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import User from './User.js'
+import { Paper } from '@mui/material'
 
 
 export default function Users( {name, role, email} ) {
@@ -22,14 +23,16 @@ export default function Users( {name, role, email} ) {
   }
 
   return (
-    <div>
+    <Paper sx={{border:1, margin:1}}>
       
       { users.map(user => {
           return (
+            <Paper sx={{border:1, margin:1}}>
             <User aname={user.name} aemail={user.email} arole={user.role} urole={role}/>
+            </Paper>
           )
         })}
     
-    </div>
+    </Paper>
   )
 }
